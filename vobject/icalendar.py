@@ -1717,6 +1717,8 @@ def isDuration(s):
 
 
 def stringToDate(s):
+    # workaround for YYYY-MM-DD
+    s = s.replace('-', '').replace(':', '')
     year = int(s[0:4])
     month = int(s[4:6])
     day = int(s[6:8])
@@ -1727,6 +1729,8 @@ def stringToDateTime(s, tzinfo=None):
     """
     Returns datetime.datetime object.
     """
+    # workaround for YYYY-MM-DDTHH:MM:SS
+    s = s.replace('-', '').replace(':', '')
     try:
         year = int(s[0:4])
         month = int(s[4:6])
